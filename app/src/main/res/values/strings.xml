@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">comunicacion</string>
+    <string name="Actividad1">Activity 1</string>
+    <string name="Actividad2">Activity 2</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellidos">Apellidos</string>
+    <string name="Edad">Edad</string>
+    <string name="Navegar">Navegar</string>
+</resources>
