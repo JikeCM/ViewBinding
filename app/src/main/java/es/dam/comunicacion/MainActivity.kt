@@ -3,25 +3,28 @@ package es.dam.comunicacion
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import es.dam.comunicacion.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     companion object{
         const val EXTRA_PERSONA = "persona"
     }
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+
+        //Inicializamos el binding / layout
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 
+
     fun irSegunda(v: View){
-        val nombre = findViewById<EditText>(R.id.txtNombre)
-        val apellidos = findViewById<EditText>(R.id.txtApellidos)
-        val edad = findViewById<EditText>(R.id.txtEdad)
-        val persona: Persona = Persona(nombre.text.toString(), apellidos.text.toString(), edad.text.toString().toIntOrNull()?:0);
+        val persona: Persona = Persona(binding.txtNombre.text.toString(), binding.txtApellidos.text.toString(), binding.txtEdad.text.toString().toIntOrNull()?:0);
         val intent = Intent(this, SecondActivity::class.java)
         intent.putExtra(EXTRA_PERSONA, persona)
         startActivity(intent)
